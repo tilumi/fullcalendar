@@ -3681,7 +3681,7 @@
 
 			if (date.isSame(today, 'day')) {
 				classes.push(
-					'fc-today',
+					view.opt['selectedCellClass'],
 					view.highlightStateClass
 				);
 			}
@@ -8781,6 +8781,7 @@
 		eventLimit: false,
 		eventLimitText: 'more',
 		eventLimitClick: 'popover',
+		selectedCellClass: 'fc-today',
 		dayPopoverFormat: 'LL',
 
 		handleWindowResize: true,
