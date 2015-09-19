@@ -8070,6 +8070,7 @@
 		t.nextYear = nextYear;
 		t.today = today;
 		t.gotoDate = gotoDate;
+		t.gotoDateWithoutRender = gotoDateWithoutRender;
 		t.incrementDate = incrementDate;
 		t.zoomTo = zoomTo;
 		t.getDate = getDate;
@@ -8600,6 +8601,10 @@
 		function gotoDate(dateInput) {
 			date = t.moment(dateInput);
 			renderView();
+		}
+
+		function gotoDateWithoutRender(dateInput){
+			date = t.moment(dateInput);
 		}
 
 
