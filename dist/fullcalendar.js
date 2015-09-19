@@ -8072,6 +8072,7 @@
 		t.gotoDate = gotoDate;
 		t.gotoDateWithoutRender = gotoDateWithoutRender;
 		t.incrementDate = incrementDate;
+		t.updateTodayButton = updateTodayButton;
 		t.zoomTo = zoomTo;
 		t.getDate = getDate;
 		t.getCalendar = getCalendar;
@@ -8533,13 +8534,21 @@
 		}
 
 
-		function updateTodayButton() {
+		function updateTodayButton(date) {
 			var now = t.getNow();
-			if (now.isWithin(currentView.intervalStart, currentView.intervalEnd)) {
-				header.disableButton('today');
-			}
-			else {
-				header.enableButton('today');
+			if(date){
+				if(date.format('YYYYMMDD') != now.format('YYYYMMDD')){
+					header.enableButton('today');
+				}else{
+					header.disableButton('today');
+				}
+			}else {
+				if (now.isWithin(currentView.intervalStart, currentView.intervalEnd)) {
+					header.disableButton('today');
+				}
+				else {
+					header.enableButton('today');
+				}
 			}
 		}
 
