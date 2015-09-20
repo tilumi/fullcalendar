@@ -8602,6 +8602,7 @@
 
 
 		function today() {
+			this.view.trigger('onToday');
 			date = t.getNow();
 			renderView();
 		}
