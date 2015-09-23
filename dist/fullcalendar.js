@@ -5728,7 +5728,10 @@
 					}
 
 					if (clickOption === 'popover') {
-						_this.showSegPopover(cell, moreEl, reslicedAllSegs);
+						var popOver = _this.showSegPopover(cell, moreEl, reslicedAllSegs);
+						this.mouseleave(function() {
+							popOver.hide();
+						});
 					}
 					else if (typeof clickOption === 'string') { // a view name
 						view.calendar.zoomTo(date, clickOption);
@@ -5778,6 +5781,7 @@
 
 			this.segPopover = new Popover(options);
 			this.segPopover.show();
+			return this.segPopover;
 		},
 
 
