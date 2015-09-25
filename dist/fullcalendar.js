@@ -563,7 +563,7 @@
 		var segStart, segEnd;
 		var isStart, isEnd;
 
-		if (subjectEnd > constraintStart && subjectStart < constraintEnd) { // in bounds at all?
+		if (subjectEnd >= constraintStart && subjectStart < constraintEnd) { // in bounds at all?
 
 			if (subjectStart >= constraintStart) {
 				segStart = subjectStart.clone();
@@ -4597,7 +4597,6 @@
 			else {
 				segs = this.rangeToSegs(eventRange); // defined by the subclass
 			}
-
 			for (i = 0; i < segs.length; i++) {
 				seg = segs[i];
 				seg.event = eventRange.event;
@@ -5761,9 +5760,11 @@
 				viewportConstrain: view.opt('popoverViewportConstrain'),
 				hide: function() {
 					// kill everything when the popover is hidden
-					_this.segPopover.removeElement();
-					_this.segPopover = null;
-					_this.popoverSegs = null;
+					if(_this.segPopover){
+						_this.segPopover.removeElement();
+						_this.segPopover = null;
+						_this.popoverSegs = null;
+					}
 				}
 			};
 
