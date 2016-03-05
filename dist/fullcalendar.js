@@ -8071,7 +8071,7 @@
 		t.nextYear = nextYear;
 		t.today = today;
 		t.gotoDate = gotoDate;
-		t.gotoDateWithoutRender = gotoDateWithoutRender;
+		t.setSelectedDate = setSelectedDate;
 		t.incrementDate = incrementDate;
 		t.updateTodayButton = updateTodayButton;
 		t.zoomTo = zoomTo;
@@ -8614,7 +8614,7 @@
 			renderView();
 		}
 
-		function gotoDateWithoutRender(dateInput){
+		function setSelectedDate(dateInput){
 			date = t.moment(dateInput);
 		}
 
