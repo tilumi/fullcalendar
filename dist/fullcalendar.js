@@ -4833,11 +4833,11 @@
 			if (this.rowCnt > 1) { // more than one week row. day numbers will be in each cell
 				return 'ddd'; // "Sat"
 			}
-			else if (this.colCnt > 1) { // multiple days, so full single date string WON'T be in title text
-				return this.view.opt('dayOfMonthFormat'); // "Sat 12/10"
+			else if (this.colCnt > 1) { // multiple days
+				return this.view.opt('WeekViewColumnHeaderFormat');
 			}
-			else { // single day, so full single date string will probably be in title text
-				return 'dddd'; // "Saturday"
+			else { // single day
+				return this.view.opt('DayViewColumnHeaderFormat');
 			}
 		},
 
